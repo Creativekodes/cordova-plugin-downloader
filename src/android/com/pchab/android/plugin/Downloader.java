@@ -68,6 +68,8 @@ public class Downloader extends CordovaPlugin {
 
             JSONObject arg_object = args.getJSONObject(0);
             String path = arg_object.getString("path");
+            String title = arg_object.getString("title");
+            String description = arg_object.getString("description");
 
             Uri uri = Uri.parse(arg_object.getString("url"));
             Download mDownload = new Download(path, callbackContext);
@@ -78,9 +80,9 @@ public class Downloader extends CordovaPlugin {
             //Set whether this download may proceed over a roaming connection.
             request.setAllowedOverRoaming(true);
             //Set the title of this download, to be displayed in notifications (if enabled).
-            request.setTitle('Downloading Update');
+            request.setTitle(title);
             //Set a description of this download, to be displayed in notifications (if enabled)
-            request.setDescription("Instant Pickup");
+            request.setDescription(description);
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
             //Set the local destination for the downloaded file to a path within the application's external files directory
             request.setDestinationInExternalFilesDir(cordovaActivity, Environment.DIRECTORY_DOWNLOADS, path);
