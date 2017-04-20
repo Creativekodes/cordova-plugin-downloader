@@ -80,7 +80,7 @@ public class Downloader extends CordovaPlugin {
             //Set the title of this download, to be displayed in notifications (if enabled).
             request.setTitle(path);
             //Set a description of this download, to be displayed in notifications (if enabled)
-            request.setDescription("MSP Devotional");
+            request.setDescription("Instant Pickup");
             //Set the local destination for the downloaded file to a path within the application's external files directory
             request.setDestinationInExternalFilesDir(cordovaActivity, Environment.DIRECTORY_DOWNLOADS, path);
 
