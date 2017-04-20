@@ -48,14 +48,14 @@ public class Downloader extends CordovaPlugin {
 
         Log.d(TAG, "CordovaPlugin: execute " + action);
 
-            if (ACTION_DOWNLOAD.equals(action)) {
+        if (ACTION_DOWNLOAD.equals(action)) {
 
-                Log.d(TAG, "CordovaPlugin: load " + action);
-                return download(args, callbackContext);
+            Log.d(TAG, "CordovaPlugin: load " + action);
+            return download(args, callbackContext);
 
-            }
+        }
 
-            return false;
+        return false;
 
 
     }    
@@ -126,9 +126,7 @@ public class Downloader extends CordovaPlugin {
                     case DownloadManager.STATUS_SUCCESSFUL:
                         try {
                             JSONObject entry = new JSONObject();
-                            entry.put("folder", Environment.DIRECTORY_DOWNLOADS);
-                            entry.put("file", currentDownload.path);
-                            currentDownload.callbackContext.success(entry);
+                            currentDownload.callbackContext.success(Environment.DIRECTORY_DOWNLOADS);
                         } catch (Exception e) {
                             System.err.println("Exception: " + e.getMessage());
                             currentDownload.callbackContext.error(e.getMessage());
