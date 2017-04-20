@@ -78,9 +78,10 @@ public class Downloader extends CordovaPlugin {
             //Set whether this download may proceed over a roaming connection.
             request.setAllowedOverRoaming(true);
             //Set the title of this download, to be displayed in notifications (if enabled).
-            request.setTitle(path);
+            request.setTitle('Downloading Update');
             //Set a description of this download, to be displayed in notifications (if enabled)
             request.setDescription("Instant Pickup");
+            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
             //Set the local destination for the downloaded file to a path within the application's external files directory
             request.setDestinationInExternalFilesDir(cordovaActivity, Environment.DIRECTORY_DOWNLOADS, path);
 
